@@ -106,6 +106,11 @@ yarn android
 # react-native run-android --variant=Debug
 ```
 
+Use ADB reverse to route your requests to your computer's localhost:3000
+```
+yarn reverse
+```
+
 ### Commands
 
 |  | Remark |
