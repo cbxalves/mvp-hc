@@ -3,10 +3,8 @@
  * and export them.
  */
 
-// import creations from 'containers/Creations/sagas'
+import home from 'containers/Home/sagas'
 
-const sagas = [
-  // creations
-]
+const sagas = [home]
 
 export default sagas

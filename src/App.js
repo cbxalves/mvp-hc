@@ -9,7 +9,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import SplashScreen from 'react-native-splash-screen'
 
-// import NetInfoWrapper from 'components/NetInfo'
 import theme from './config/theme'
 import Navigator from './containers/Navigator'
 import NotificationManager from './containers/NotificationManager'
@@ -40,7 +39,6 @@ const App = () => {
               <NavigationContainer ref={navigationRef}>
                 <Navigator />
                 {renderNotifications()}
-                {/* <NetInfoWrapper /> */}
               </NavigationContainer>
             </SafeAreaProvider>
           </PaperProvider>

@@ -26,7 +26,6 @@ function checkStatus(response) {
       status: response.status,
       statusText: response.statusText,
       message: json.message || response.statusText,
-      userMessage: json.userMessage,
     }
 
     return Promise.reject(reason)
