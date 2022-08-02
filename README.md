@@ -1,12 +1,6 @@
 
-# LabApp - Gronda FE Task
+# LabApp - MVP Match Mobile
 ___
-
-## Disclaimer
-
-Although you have provided a very well structured RN boilerplate, I’ve decided to solve this task using my current project(s) structure because I plan to gradually refactor and upgrade it with better tools like TypeScript, Redux Toolkit/React Query, react-testing-library, among others. This was a stepping stone in that process. The development time speed was also a factor taken into account.
-
-Despite the fact that I'm not actively using TypeScript, I did try to convert some parts of the code to TS, but since there’s too much to catch up and refactor, I didn't have the time to use it capably and the organization could be improved. I do understand the value of TypeScript and I’m confident I can get comfortable with it in a matter of weeks. Also, regarding the lack of tests, I just want to point out that I have experience with Jest/Enzyme for React Web but I haven't had the chance to work with react(-native)-testing-library yet.
 
 ### Table of Contents
 

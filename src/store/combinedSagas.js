@@ -3,8 +3,8 @@
  * and export them.
  */
 
-import home from 'containers/Home/sagas'
+import favorites from 'containers/Favorites/sagas'
 
-const sagas = [home]
+const sagas = [favorites]
 
 export default sagas

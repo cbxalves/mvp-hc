@@ -1,22 +1,19 @@
 /**
- * @module Creation/ducks
+ * @module TitleDetails/ducks
  */
 
 import update from 'immutability-helper'
-import { Reducer } from 'redux'
-
-import { CreationState } from './types'
 
 /**
  * Constants
  */
-export const INCREMENT_VISITS = 'Creation/INCREMENT_VISITS'
+export const INCREMENT_VISITS = 'TitleDetails/INCREMENT_VISITS'
 
-const initialState: CreationState = {
+const initialState = {
   visits: {},
 }
 
-const reducer: Reducer<CreationState> = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_VISITS:
       return update(state, {

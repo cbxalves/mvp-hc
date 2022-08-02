@@ -2,9 +2,7 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import { ActivityIndicator, useTheme } from 'react-native-paper'
 
-const LoadingIcon: React.FC<{
-  animating: boolean
-}> = ({ animating }) => {
+const LoadingIcon = ({ animating }) => {
   const theme = useTheme()
 
   return animating ? (

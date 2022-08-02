@@ -4,8 +4,8 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 import { encryptTransform } from 'redux-persist-transform-encrypt'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import home from 'containers/Home/ducks'
-import creation from 'containers/Creation/ducks'
+import favorites from 'containers/Favorites/ducks'
+// import creation from 'containers/TitleDetails/ducks'
 import notifications from 'containers/NotificationManager/ducks'
 
 const encryptor = encryptTransform({
@@ -23,8 +23,8 @@ const rootConfig = {
 }
 
 const rootReducer = combineReducers({
-  home,
-  creation,
+  favorites,
+  // creation,
   notifications,
 })
 
