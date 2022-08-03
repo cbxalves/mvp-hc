@@ -2,12 +2,9 @@ import { StyleSheet } from 'react-native'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 export default StyleSheet.create({
-  container: {
-    // flex: 1,
-    // width: '90%',
-    // alignSelf: 'center',
+  searchBar: {
+    position: 'relative',
   },
-  searchBar: {},
   searchItemTitle: {
     fontWeight: 'bold',
     fontSize: 16,
@@ -17,12 +14,17 @@ export default StyleSheet.create({
     width: 80,
     height: 80,
   },
-  list: {
+  listWrapper: {
+    position: 'absolute',
     width: '100%',
+    top: 50,
+    backgroundColor: '#fff',
+    zIndex: 2,
   },
-  extraPadding: {
-    marginTop: 16,
-    paddingBottom: hp('10%'),
+  surface: {
+    maxHeight: hp('75%'),
+    elevation: 4,
+    borderRadius: 4,
   },
   emptyList: {
     justifyContent: 'center',

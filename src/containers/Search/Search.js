@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { FlatList, View, Image } from 'react-native'
-import { Text, Searchbar, List } from 'react-native-paper'
-import { useNavigation } from '@react-navigation/native'
+import { Text, Searchbar, List, Surface } from 'react-native-paper'
+import { useNavigation, useIsFocused } from '@react-navigation/native'
 
 import useDebounce from 'hooks/useDebounce'
 
@@ -9,9 +9,9 @@ import styles from './styles'
 
 const Search = ({ results, dataFetched, searchTitle, resetResults }) => {
   const navigation = useNavigation()
+  const isHomeFocused = useIsFocused()
   const searchbarRef = useRef(null)
   const [search, setSearch] = useState('')
-  const [searchFocused, setFocused] = useState(false)
   const debouncedSearch = useDebounce(search, 500)
 
   useEffect(() => {
@@ -27,11 +27,11 @@ const Search = ({ results, dataFetched, searchTitle, resetResults }) => {
   }, [debouncedSearch, searchTitle])
 
   useEffect(() => {
-    return () => {
+    if (!isHomeFocused) {
       resetResults()
       setSearch('')
     }
-  }, [resetResults])
+  }, [isHomeFocused, resetResults])
 
   const handleSearchChange = searchText => {
     setSearch(searchText)
@@ -66,38 +66,32 @@ const Search = ({ results, dataFetched, searchTitle, resetResults }) => {
   }
 
   return (
-    <View style={[styles.container, searchFocused && styles.flex]}>
+    <>
       <Searchbar
         ref={searchbarRef}
         onChangeText={handleSearchChange}
         value={search}
         placeholder='Search Movies & TV Shows...'
         style={styles.searchBar}
-        onFocus={() => {
-          console.tron.log('onFocus')
-
-          setFocused(true)
-        }}
-        onBlur={() => {
-          console.tron.log('onBlur')
-          setFocused(false)
-        }}
       />
-      {searchFocused && (
-        <FlatList
-          contentContainerStyle={[
-            styles.list,
-            searchFocused && results?.length > 0 && styles.extraPadding,
-          ]}
-          data={results}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          ListEmptyComponent={
-            dataFetched && <Text style={styles.emptyListText}>No results.</Text>
-          }
-        />
+      {results?.length > 0 && (
+        <View style={styles.listWrapper}>
+          <Surface style={styles.surface}>
+            <FlatList
+              keyboardShouldPersistTaps='handled'
+              data={results}
+              renderItem={renderItem}
+              keyExtractor={(item, index) => index.toString()}
+              ListEmptyComponent={
+                dataFetched && (
+                  <Text style={styles.emptyListText}>No results.</Text>
+                )
+              }
+            />
+          </Surface>
+        </View>
       )}
-    </View>
+    </>
   )
 }
 
