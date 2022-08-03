@@ -35,7 +35,7 @@ export default function reducer(state = initialState, action) {
       return update(state, {
         results: {
           $set: action.data?.Search?.filter(
-            t => !state.hidden.includes(t.imdbID)
+            t => !state.hidden.find(h => h.imdbID === t.imdbID)
           ),
         },
         isLoading: { $set: false },
