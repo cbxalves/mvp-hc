@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "mock-api": "json-server --watch __mocks__/db.json",
-    "reverse": "adb root && adb reverse tcp:3000 tcp:3000",
+    "reverse": "adb root && adb reverse tcp:9090 tcp:9090",
     "commit": "git-cz"
   },
   "dependencies": {
