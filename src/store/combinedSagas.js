@@ -3,8 +3,9 @@
  * and export them.
  */
 
-import favorites from 'containers/Favorites/sagas'
+import details from 'containers/TitleDetails/sagas'
+import search from 'containers/Search/sagas'
 
-const sagas = [favorites]
+const sagas = [details, search]
 
 export default sagas
