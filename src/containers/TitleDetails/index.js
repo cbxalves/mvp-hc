@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 
-import { toggleFavorite, toggleVisibility } from 'containers/Home/ducks'
+import { toggleFavorite } from 'containers/Home/ducks'
+import { toggleVisibility } from 'containers/Search/ducks'
 import { getTitleDetails } from './ducks'
 import TitleDetails from './TitleDetails'
 
