@@ -5,38 +5,39 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 16,
-    // width: '90%',
-    // alignSelf: 'center',
-  },
-  columnWrapper: {
-    justifyContent: 'space-between',
-  },
-  header: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    paddingBottom: 8,
-    marginTop: 32,
-  },
-  searchBar: {
-    marginBottom: 16,
     width: '90%',
     alignSelf: 'center',
-  },
-  searchItemTitle: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    paddingBottom: 4,
-  },
-  searchItemImage: {
-    width: 80,
-    height: 80,
+    position: 'relative',
   },
   list: {
-    // marginBottom: hp('20%'),
-    // height: hp('100%'),
+    flex: 1,
   },
-  listItem: {
-    marginBottom: 32,
+  listTitle: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginTop: 24,
+    marginBottom: 16,
+  },
+  favTitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    paddingBottom: 4,
+  },
+  favImage: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
+  },
+  favPlot: {
+    fontSize: 14,
+  },
+  favRating: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  favScore: {
+    paddingLeft: 8,
+    fontSize: 16,
   },
   emptyList: {
     justifyContent: 'center',
@@ -44,7 +45,6 @@ export default StyleSheet.create({
   },
   emptyListText: {
     fontSize: 18,
-    fontWeight: 'bold',
   },
   lottie: {
     height: hp('30%'),
