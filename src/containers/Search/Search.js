@@ -21,7 +21,7 @@ const Search = ({ results, dataFetched, searchTitle, resetResults }) => {
   }, [debouncedSearch.length, resetResults])
 
   useEffect(() => {
-    if (debouncedSearch?.length >= 3) {
+    if (debouncedSearch?.length >= 2) {
       searchTitle(debouncedSearch)
     }
   }, [debouncedSearch, searchTitle])
