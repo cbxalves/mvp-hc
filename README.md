@@ -54,7 +54,7 @@ Containers use the [ducks](https://github.com/erikras/ducks-modular-redux) appro
 
 ### Getting Started
 
-Make sure node version installed is `>=12.x.x`. Then install using yarn (or npm):
+Make sure node version installed is `>=14.x.x`. Then install using yarn (or npm):
 ```
 yarn install
 ```
