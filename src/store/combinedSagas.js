@@ -3,10 +3,9 @@
  * and export them.
  */
 
-// import creations from 'containers/Creations/sagas'
+import details from 'containers/TitleDetails/sagas'
+import search from 'containers/Search/sagas'
 
-const sagas = [
-  // creations
-]
+const sagas = [details, search]
 
 export default sagas

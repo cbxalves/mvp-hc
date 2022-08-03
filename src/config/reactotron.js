@@ -2,7 +2,7 @@
 
 import { NativeModules, Platform } from 'react-native'
 import Reactotron from 'reactotron-react-native'
-import ReactotronFlipper from 'reactotron-react-native/dist/flipper'
+// import ReactotronFlipper from 'reactotron-react-native/dist/flipper'
 import { reactotronRedux } from 'reactotron-redux'
 import reactotronSaga from 'reactotron-redux-saga'
 
@@ -12,7 +12,7 @@ if (__DEV__) {
 
   const tron = Reactotron.configure({
     host: Platform.OS === 'ios' ? scriptHostname : 'localhost',
-    createSocket: path => new ReactotronFlipper(path),
+    // createSocket: path => new ReactotronFlipper(path),
   })
     .useReactNative()
     .use(reactotronRedux())

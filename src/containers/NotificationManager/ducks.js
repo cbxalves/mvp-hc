@@ -47,8 +47,8 @@ export default function reducer(state = initialState, action) {
 /**
  * show notification action creator
  */
-export function showNotification(variant, message, isCustom) {
-  return { type: SHOW_NOTIFICATION, variant, message, isCustom }
+export function showNotification(variant, message) {
+  return { type: SHOW_NOTIFICATION, variant, message }
 }
 
 /**

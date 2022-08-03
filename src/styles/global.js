@@ -1,14 +1,7 @@
 import { StyleSheet, Platform } from 'react-native'
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen'
-import dimensions from './dimensions'
-import colors from './colors'
-import getTheme from 'util/getTheme'
-import getBoldFont from 'util/getBoldFont'
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
-const theme = getTheme()
+import dimensions from './dimensions'
 
 export default StyleSheet.create({
   root: {
@@ -21,11 +14,11 @@ export default StyleSheet.create({
     height: hp('100%'),
   },
   content: {
-    marginTop: hp('5%'),
-    marginBottom: hp('5%'),
     flex: 1,
     width: '85%',
     alignSelf: 'center',
+    marginTop: hp('5%'),
+    marginBottom: hp('5%'),
   },
   submitBtn: {
     padding: dimensions.spacing,
@@ -37,48 +30,11 @@ export default StyleSheet.create({
   warning: {
     fontSize: 22,
     ...(Platform.OS === 'ios' && { fontWeight: 'bold' }),
-    fontFamily: getBoldFont(),
     textAlign: 'center',
-    color: '#e80c6b', // theme.colors.accent,
+    color: '#e80c6b',
   },
   centered: {
     width: '90%',
     alignSelf: 'center',
-  },
-  indicator: {
-    borderBottomWidth: 4,
-    borderBottomColor: theme.colors.primary,
-  },
-  tab: {
-    width: wp('50%'),
-  },
-  tabRoot: {
-    backgroundColor: '#fff',
-    borderBottomColor: colors.light,
-    paddingTop: 4,
-  },
-  tabLabel: {
-    textTransform: 'uppercase',
-  },
-  libras: {
-    fontFamily: 'LIBRAS2002',
-    fontSize: 20,
-    lineHeight: 18,
-  },
-  co2Container: {
-    flex: 1,
-  },
-  co2Image: {
-    width: 100,
-    height: 30,
-    resizeMode: 'contain',
-  },
-  co2Bold: {
-    paddingLeft: 8,
-    fontFamily: getBoldFont(),
-    ...(Platform.OS === 'ios' && { fontWeight: 'bold' }),
-  },
-  co2Label: {
-    fontWeight: 'normal',
   },
 })

@@ -1,16 +1,28 @@
-import { connect } from 'react-redux'
-import { resetRestaurant } from 'containers/Restaurant/ducks'
-import AppBar from './AppBar'
+import React from 'react'
+import { View, Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { Appbar } from 'react-native-paper'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 
-const mapStateToProps = ({ auth, cart, delivery }) => ({
-  isLoggedIn: !!auth.authToken,
-  cartOrder: cart.order,
-  deliveryOrder: delivery.order,
-  deliveryTrack: delivery.track,
-})
+import logo from 'assets/images/logo.png'
+import styles from './styles'
 
-const mapDispatchToProps = dispatch => ({
-  resetRestaurant: (...args) => dispatch(resetRestaurant(...args)),
-})
+const AppBar = ({ type }) => {
+  const navigation = useNavigation()
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppBar)
+  const goBack = () => {
+    navigation.goBack()
+  }
+
+  return (
+    <Appbar.Header style={styles.header} statusBarHeight={getStatusBarHeight()}>
+      {type === 'back' && (
+        <Appbar.BackAction style={styles.action} onPress={goBack} />
+      )}
+      <Image style={styles.logo} source={logo} resizeMode='contain' />
+      {type === 'back' && <View style={styles.action} />}
+    </Appbar.Header>
+  )
+}
+
+export default AppBar

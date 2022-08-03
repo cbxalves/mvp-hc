@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { Snackbar, withTheme } from 'react-native-paper'
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import { Snackbar } from 'react-native-paper'
 
 const NotificationManager = ({ notifications, hideNotification }) => {
   const { variant, show, message } = notifications
@@ -32,11 +31,9 @@ const NotificationManager = ({ notifications, hideNotification }) => {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    top: hp('12%'),
-  },
+  wrapper: {},
 })
 
 NotificationManager.propTypes = {}
 
-export default withTheme(NotificationManager)
+export default NotificationManager
