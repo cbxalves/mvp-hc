@@ -45,6 +45,9 @@ export default StyleSheet.create({
   },
   emptyListText: {
     fontSize: 18,
+    fontWeight: 'bold',
+    width: '90%',
+    textAlign: 'center',
   },
   lottie: {
     height: hp('30%'),

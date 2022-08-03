@@ -59,11 +59,10 @@ const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
         <View style={styles.container}>
           <Search />
           <FlatList
-            // contentContainerStyle={styles.list}
             ListHeaderComponent={
               <Text style={styles.listTitle}>Favorites List</Text>
             }
-            data={[]}
+            data={favorites}
             renderItem={renderItem}
             keyExtractor={(item, index) => index.toString()}
             ListEmptyComponent={

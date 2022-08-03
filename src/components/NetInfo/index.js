@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { View, StatusBar } from 'react-native'
-import { Text, useTheme } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 import LottieView from 'lottie-react-native'
 import { useNetInfo } from '@react-native-community/netinfo'
 
@@ -26,7 +26,7 @@ const NetInfoWrapper = () => {
         loop
       />
       <Text style={styles.text}>
-        {'Check your internet access and try again.'}{' '}
+        {'Check your internet access and try again.'}
       </Text>
     </View>
   ) : null
