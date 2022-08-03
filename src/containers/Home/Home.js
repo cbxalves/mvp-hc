@@ -12,6 +12,7 @@ import LottieView from 'lottie-react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import movieImage from 'assets/images/movie.png'
 import AppBar from 'components/AppBar'
 import Search from 'containers/Search'
 import { global } from 'styles'
@@ -27,7 +28,7 @@ const Home = ({ favorites, hidden, toggleFavorite, toggleVisibility }) => {
   }
 
   const handleItemToggle = item => event => {
-    isHidden ? toggleVisibility(item) : toggleVisibility(item)
+    isHidden ? toggleVisibility(item) : toggleFavorite(item)
   }
 
   const renderItem = ({ item }) => {
@@ -41,9 +42,13 @@ const Home = ({ favorites, hidden, toggleFavorite, toggleVisibility }) => {
         left={props => (
           <Image
             style={styles.favImage}
-            source={{
-              uri: item.Poster,
-            }}
+            source={
+              !item.Poster || item.Poster === 'N/A'
+                ? movieImage
+                : {
+                    uri: item.Poster,
+                  }
+            }
             resizeMode='contain'
           />
         )}

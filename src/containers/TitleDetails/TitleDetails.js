@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, Image, View } from 'react-native'
 import { Text, Button, useTheme } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import movieImage from 'assets/images/movie.png'
 import AppBar from 'components/AppBar'
 import LoadingIcon from 'components/LoadingIcon'
 import useIsFavorited from 'hooks/useIsFavorited'
@@ -42,9 +43,13 @@ const TitleDetails = ({
         <ScrollView contentContainerStyle={styles.content}>
           <Image
             style={styles.poster}
-            source={{
-              uri: details.Poster,
-            }}
+            source={
+              !details.Poster || details.Poster === 'N/A'
+                ? movieImage
+                : {
+                    uri: details.Poster,
+                  }
+            }
             resizeMode='contain'
           />
           <Text style={styles.title}>{details.Title}</Text>

@@ -3,6 +3,7 @@ import { FlatList, View, Image } from 'react-native'
 import { Text, Searchbar, List, Surface } from 'react-native-paper'
 import { useNavigation, useIsFocused } from '@react-navigation/native'
 
+import movieImage from 'assets/images/movie.png'
 import useDebounce from 'hooks/useDebounce'
 
 import styles from './styles'
@@ -54,9 +55,13 @@ const Search = ({ results, dataFetched, searchTitle, resetResults }) => {
         left={props => (
           <Image
             style={styles.searchItemImage}
-            source={{
-              uri: item.Poster,
-            }}
+            source={
+              !item.Poster || item.Poster === 'N/A'
+                ? movieImage
+                : {
+                    uri: item.Poster,
+                  }
+            }
             resizeMode='contain'
           />
         )}
