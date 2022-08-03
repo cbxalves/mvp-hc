@@ -106,5 +106,4 @@ yarn reverse
 | `yarn start` | Starts metro bundler |
 | `yarn ios` | Starts iOS app. Start metro bundler first |
 | `yarn android` | Starts Android app. Start metro bundler and Android emulator first |
-| `yarn lint` | linting |
 | `yarn reverse` | ADB reverse to port 9090 |
