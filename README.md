@@ -1,5 +1,5 @@
 
-# LabApp - MVP Match Mobile
+# MVP Match Mobile
 ___
 
 ### Table of Contents
@@ -60,11 +60,6 @@ Make sure node version installed is `>=12.x.x`. Then install using yarn (or npm)
 yarn install
 ```
 
-Start the Mock API using JSON Server:
-```
-yarn mock-api
-```
-
 Start the Metro Bundler:
 ```
 yarn start
@@ -100,7 +95,7 @@ yarn android
 # react-native run-android --variant=Debug
 ```
 
-Use ADB reverse to route your requests to your computer's localhost:3000
+Use ADB reverse to connect to Reactotron on port 9090
 ```
 yarn reverse
 ```
@@ -113,5 +108,4 @@ yarn reverse
 | `yarn ios` | Starts iOS app. Start metro bundler first |
 | `yarn android` | Starts Android app. Start metro bundler and Android emulator first |
 | `yarn lint` | linting |
-| `yarn mock-api` | Starts a Mock API with JSON Server |
-| `yarn reverse` | ADB reverse to port 3000 |
+| `yarn reverse` | ADB reverse to port 9090 |
