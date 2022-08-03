@@ -35,6 +35,7 @@ export default StyleSheet.create({
   },
   favPlot: {
     fontSize: 14,
+    marginRight: 4,
   },
   favActions: {
     alignSelf: 'center',

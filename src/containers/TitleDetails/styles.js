@@ -9,7 +9,6 @@ export default StyleSheet.create({
   content: {
     marginTop: 32,
     flex: 1,
-    // top: hp('30%'),
     alignItems: 'center',
     width: '90%',
     alignSelf: 'center',
@@ -21,7 +20,6 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    // color: '#fff',
     fontWeight: 'bold',
     paddingBottom: 8,
   },
