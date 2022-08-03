@@ -9,13 +9,10 @@ export default StyleSheet.create({
     alignSelf: 'center',
     position: 'relative',
   },
-  list: {
-    flex: 1,
-  },
   listTitle: {
     fontWeight: 'bold',
     fontSize: 24,
-    marginTop: 24,
+    marginTop: 32,
     marginBottom: 16,
   },
   favTitle: {
@@ -24,22 +21,26 @@ export default StyleSheet.create({
     paddingBottom: 4,
   },
   favImage: {
-    width: 100,
+    width: 80,
     height: 100,
     alignSelf: 'center',
   },
   favPlot: {
     fontSize: 14,
   },
+  favActions: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
   favRating: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   favScore: {
-    paddingLeft: 8,
     fontSize: 16,
   },
   emptyList: {
+    marginTop: hp('2%'),
     justifyContent: 'center',
     alignItems: 'center',
   },

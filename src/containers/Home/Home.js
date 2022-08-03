@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StatusBar, FlatList, View, Image } from 'react-native'
-import { Text, List } from 'react-native-paper'
+import { Text, List, IconButton } from 'react-native-paper'
 import LottieView from 'lottie-react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -23,9 +23,20 @@ const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
       <List.Item
         title={item.Title}
         titleStyle={styles.favTitle}
-        description={() => (
-          <View>
-            <Text style={styles.favPlot}>{item.Plot}</Text>
+        description={item.Plot}
+        descriptionStyle={styles.favPlot}
+        descriptionNumberOfLines={4}
+        left={props => (
+          <Image
+            style={styles.favImage}
+            source={{
+              uri: item.Poster,
+            }}
+            resizeMode='contain'
+          />
+        )}
+        right={props => (
+          <View style={styles.favActions}>
             <View style={styles.favRating}>
               <Icon
                 name='star'
@@ -35,16 +46,13 @@ const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
               />
               <Text style={styles.favScore}>{item.imdbRating}</Text>
             </View>
+            <IconButton
+              {...props}
+              size={25}
+              icon='bookmark-off'
+              onPress={() => toggleFavorite(item)}
+            />
           </View>
-        )}
-        left={props => (
-          <Image
-            style={styles.favImage}
-            source={{
-              uri: item.Poster,
-            }}
-            resizeMode='contain'
-          />
         )}
         onPress={goToDetails(item.imdbID)}
       />
