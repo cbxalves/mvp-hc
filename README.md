@@ -1,6 +1,5 @@
 
 # MVP Match Mobile
-___
 
 ### Table of Contents
 
