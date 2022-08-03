@@ -1,8 +1,5 @@
 import { StyleSheet } from 'react-native'
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen'
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 export default StyleSheet.create({
   safeArea: {
@@ -23,14 +20,14 @@ export default StyleSheet.create({
     marginBottom: 32,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     // color: '#fff',
     fontWeight: 'bold',
     paddingBottom: 8,
   },
   plot: {
-    fontSize: 18,
-    paddingBottom: 32,
+    fontSize: 16,
+    paddingBottom: 24,
   },
   rating: {
     flexDirection: 'row',

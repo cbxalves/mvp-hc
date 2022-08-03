@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { SafeAreaView, ScrollView, StatusBar, Image, View } from 'react-native'
+import { SafeAreaView, ScrollView, Image, View } from 'react-native'
 import { Text, Button, useTheme } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -23,8 +23,6 @@ const TitleDetails = ({
   const isFavorited = useIsFavorited(titleId)
   const isHidden = useIsHidden(titleId)
 
-  console.tron.log('DETAILS', isFavorited, isHidden)
-
   useEffect(() => {
     getTitleDetails(titleId)
   }, [titleId, getTitleDetails])
@@ -39,7 +37,6 @@ const TitleDetails = ({
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle='light-content' />
       <AppBar type='back' />
       {!!details && (
         <ScrollView contentContainerStyle={styles.content}>

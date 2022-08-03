@@ -1,15 +1,12 @@
 import { connect } from 'react-redux'
 
-import {
-  getTitleDetails,
-  toggleFavorite,
-  toggleVisibility,
-} from 'containers/Favorites/ducks'
-import Creation from './TitleDetails'
+import { toggleFavorite, toggleVisibility } from 'containers/Home/ducks'
+import { getTitleDetails } from './ducks'
+import TitleDetails from './TitleDetails'
 
-const mapStateToProps = ({ favorites }) => ({
-  details: favorites.details,
-  isLoading: favorites.isLoading,
+const mapStateToProps = ({ details }) => ({
+  details: details.data,
+  isLoading: details.isLoading,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -18,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
   toggleVisibility: (...args) => dispatch(toggleVisibility(...args)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Creation)
+export default connect(mapStateToProps, mapDispatchToProps)(TitleDetails)

@@ -1,5 +1,5 @@
 /**
- * @module TitleDetails/ducks
+ * @module Details/ducks
  */
 
 import update from 'immutability-helper'
@@ -7,39 +7,52 @@ import update from 'immutability-helper'
 /**
  * Constants
  */
-export const INCREMENT_VISITS = 'TitleDetails/INCREMENT_VISITS'
+export const GET_TITLE_DETAILS = 'Details/GET_TITLE_DETAILS'
+export const GET_TITLE_DETAILS_SUCCESS = 'Details/GET_TITLE_DETAILS_SUCCESS'
+export const GET_TITLE_DETAILS_ERROR = 'Details/GET_TITLE_DETAILS_ERROR'
+export const TIMEOUT_ERROR = 'Details/TIMEOUT_ERROR'
 
 const initialState = {
-  visits: {},
+  data: null,
+  isLoading: false,
 }
 
-const reducer = (state = initialState, action) => {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case INCREMENT_VISITS:
+    case GET_TITLE_DETAILS:
       return update(state, {
-        visits: {
-          $apply: visits => {
-            if (action.creationId in visits) {
-              return {
-                ...visits,
-                [action.creationId]: visits[action.creationId] + 1,
-              }
-            }
-            return { ...visits, [action.creationId]: 1 }
-          },
-        },
+        data: { $set: null },
+        isLoading: { $set: true },
+      })
+    case GET_TITLE_DETAILS_SUCCESS:
+      return update(state, {
+        data: { $set: action.data },
+        isLoading: { $set: false },
+      })
+
+    case GET_TITLE_DETAILS_ERROR:
+    case TIMEOUT_ERROR:
+      return update(state, {
+        isLoading: { $set: false },
       })
 
     default:
       return state
   }
 }
-export default reducer
 
 /**
- * Increment creation visit count action creator
+ * Get title details action creators
  */
-export const incrementVisits = (creationId: number) => ({
-  type: INCREMENT_VISITS,
-  creationId,
+export const getTitleDetails = id => ({
+  type: GET_TITLE_DETAILS,
+  id,
+})
+export const getTitleDetailsSuccess = data => ({
+  type: GET_TITLE_DETAILS_SUCCESS,
+  data,
+})
+export const getTitleDetailsError = error => ({
+  type: GET_TITLE_DETAILS_ERROR,
+  error,
 })
