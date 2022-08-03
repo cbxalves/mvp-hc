@@ -1,5 +1,12 @@
-import React from 'react'
-import { SafeAreaView, StatusBar, FlatList, View, Image } from 'react-native'
+import React, { useState } from 'react'
+import {
+  SafeAreaView,
+  StatusBar,
+  FlatList,
+  View,
+  Image,
+  TouchableOpacity,
+} from 'react-native'
 import { Text, List, IconButton } from 'react-native-paper'
 import LottieView from 'lottie-react-native'
 import { useNavigation } from '@react-navigation/native'
@@ -11,11 +18,16 @@ import { global } from 'styles'
 
 import styles from './styles'
 
-const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
+const Home = ({ favorites, hidden, toggleFavorite, toggleVisibility }) => {
   const navigation = useNavigation()
+  const [isHidden, setIsHidden] = useState(false)
 
   const goToDetails = titleId => event => {
     navigation.navigate('TitleDetails', { titleId })
+  }
+
+  const handleItemToggle = item => event => {
+    isHidden ? toggleVisibility(item) : toggleVisibility(item)
   }
 
   const renderItem = ({ item }) => {
@@ -49,8 +61,8 @@ const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
             <IconButton
               {...props}
               size={25}
-              icon='bookmark-off'
-              onPress={() => toggleFavorite(item)}
+              icon={isHidden ? 'eye' : 'bookmark-off'}
+              onPress={handleItemToggle(item)}
             />
           </View>
         )}
@@ -67,10 +79,20 @@ const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
         <View style={styles.container}>
           <Search />
           <FlatList
+            showsVerticalScrollIndicator={false}
             ListHeaderComponent={
-              <Text style={styles.listTitle}>Favorites List</Text>
+              <View style={styles.header}>
+                <Text style={styles.listTitle}>
+                  {isHidden ? 'Hidden Titles' : 'Favorites List'}
+                </Text>
+                <TouchableOpacity onPress={() => setIsHidden(!isHidden)}>
+                  <Text style={styles.listSubtitle}>
+                    {isHidden ? 'Favorites List' : 'Hidden Titles'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
             }
-            data={favorites}
+            data={isHidden ? hidden : favorites}
             renderItem={renderItem}
             keyExtractor={(item, index) => index.toString()}
             ListEmptyComponent={
@@ -83,7 +105,9 @@ const Home = ({ favorites, toggleFavorite, toggleVisibility }) => {
                   autoSize
                 />
                 <Text style={styles.emptyListText}>
-                  You have no favorite movies / TV shows :(
+                  {`You have no ${
+                    isHidden ? 'hidden' : 'favorite'
+                  } movies / TV shows :(`}
                 </Text>
               </View>
             }

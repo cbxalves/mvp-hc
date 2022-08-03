@@ -58,10 +58,13 @@ export default function reducer(state = initialState, action) {
       return update(state, {
         hidden: {
           $apply: hidden => {
-            if (hidden.includes(action.id)) {
-              return hidden.filter(t => t !== action.id)
+            const foundTitle = hidden.find(
+              t => t.imdbID === action.title.imdbID
+            )
+            if (foundTitle) {
+              return hidden.filter(t => t.imdbID !== action.title.imdbID)
             }
-            return [...hidden, action.id]
+            return [...hidden, action.title]
           },
         },
       })
@@ -102,7 +105,7 @@ export const resetResults = () => ({
 /**
  * Hide/Unhide title from search action creators
  */
-export const toggleVisibility = id => ({
+export const toggleVisibility = title => ({
   type: TOGGLE_VISIBILITY,
-  id,
+  title,
 })

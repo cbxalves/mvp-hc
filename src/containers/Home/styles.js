@@ -4,16 +4,24 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 16,
+    marginVertical: 16,
     width: '90%',
     alignSelf: 'center',
     position: 'relative',
   },
+  header: {
+    marginTop: 32,
+    marginBottom: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   listTitle: {
     fontWeight: 'bold',
     fontSize: 24,
-    marginTop: 32,
-    marginBottom: 16,
+  },
+  listSubtitle: {
+    textDecorationLine: 'underline',
   },
   favTitle: {
     fontWeight: 'bold',

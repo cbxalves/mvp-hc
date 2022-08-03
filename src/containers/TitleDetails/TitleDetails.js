@@ -32,7 +32,7 @@ const TitleDetails = ({
   }
 
   const handleToggleVisibility = () => {
-    toggleVisibility(titleId)
+    toggleVisibility(details)
   }
 
   return (
